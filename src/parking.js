@@ -58,7 +58,8 @@ function parkingAnalysis() {
   });
 
   //How many different types of parking tickets were issued?
-  
+  let differentTickets = individualViolationCode.length;
+  console.log('How many different types of parking tickets were issued?', differentTickets);
   //------------------------------------------------------------------------------
   //What was the most common violation type for a parking ticket?
   let parkingViolation = mostCommonViolation.violationName;
