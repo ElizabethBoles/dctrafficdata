@@ -5,13 +5,18 @@ function parkingAnalysis() {
  // . go into my current directory / = go more in
  //creating a variable using the function i've created called data
  //insirting my actual file in the data bubble
-//How many different types of parking tickets were issued?
+
+//What was the most common violation type for a parking ticket?
   let frequency = {};
-  //empty object to help find frequency
+    //empty object to help find frequency
+//------------------------------------------------------------------------------
+
 //then make a for each loop
   parking.forEach( function properties(row){
   //function requires 3 parts you're gunna be a function say function/ name the
   //function / give your function an argument contained withing ()
+
+  //What was the most common violation type for a parking ticket?
   // console.log('logs out the row', row[9]);
     if(!frequency[row[9]]) {
   //ifs require ()arguement and in the ()it needs to say what you need to happen
@@ -25,17 +30,45 @@ function parkingAnalysis() {
   //{made a for each loop that goes through the file and gives you a violation
   //{type and count from index 9
     }
+  //------------------------------------------------------------------------------
+
   });
+
+  //How many different types of parking tickets were issued?
+  //What was the most common violation type for a parking ticket?
   let individualViolationCode = Object.keys(frequency);
   //setting a new variable for the type of violation
   //object.keys = whats pulling only the type from my frequency
+  let mostCommonViolation = {
+    violationName : 'default',
+    violationCount : 0
+    //^ = placeholder that i'll fill through the foreach
+  };
+  //holding on to a set of "default values" that associate with the properties
+  //im trying to find
   individualViolationCode.forEach( function commonViolation(parkingCode){
-    if(frequency[parkingCode] >)
+    if(frequency[parkingCode] > mostCommonViolation.violationCount) {
+      mostCommonViolation.violationCount = frequency[parkingCode];
+      //this connects the frequency created above and over rides the violationCount
+      //defined in my most common violation object
+      mostCommonViolation.violationName = parkingCode;
+      //this line over rides the default violation name with the parking code
+      //i defined
+    }
   });
+
+  //How many different types of parking tickets were issued?
+  
+  //------------------------------------------------------------------------------
+  //What was the most common violation type for a parking ticket?
+  let parkingViolation = mostCommonViolation.violationName;
+  //simplification step
+  console.log('What was the most common violation type for a parking ticket?', parkingViolation);
+  //------------------------------------------------------------------------------
 }
 
 parkingAnalysis();
-
+//need this to call function and have it show up in iterm - make it work
 
 
 
